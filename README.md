@@ -4,7 +4,7 @@ This is my CMSE401 project! It uses deep learning and OpenCV to automatically id
 
 ## 📄 Project Proposal  
 You can find my project proposal in:
-- [`project_proposal.pdf`](project_proposal.pdf) (PDF version)  
+- [📑 `project_proposal.pdf`](project_proposal/project_proposal.pdf)
 
 ## 📅 Milestones  
 - ✅ **Milestone 1:** Submit Project Proposal  

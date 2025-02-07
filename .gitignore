@@ -1,78 +1,30 @@
-# Ignore system files
+# System files
 .DS_Store
 Thumbs.db
 
-# Ignore compiled Python files
+# Python-related files
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-# Ignore Jupyter Notebook checkpoints
+# Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
-# Ignore virtual environments
+# Virtual environments
 venv/
 env/
 
-# Ignore logs and temporary files
+# Logs and temporary files
 *.log
 *.tmp
-*.swp
 
-# Ignore LaTeX files (if using for documentation)
-*.aux
-*.bbl
-*.blg
-*.log
-*.out
-*.toc
-
-# Ignore Markdown and document backup files
-*.md~
-*.bak
-
-# Ignore software-generated files
-*.o
-*.so
-*.a
-*.exe
-
-# Ignore Git-specific files
-.gitignore
-
-# Ignore data files (if using datasets)
-data/
+# Ignore data files (optional, if working with datasets)
 *.csv
-*.tsv
 *.json
 
-# Ignore model checkpoints
-checkpoints/
-*.h5
-*.pb
-*.pth
+# Ignore Git-related files
+.gitignore
 
-# Ignore outputs (e.g., generated figures, reports)
-outputs/
-*.png
-*.jpg
-*.pdf
-
-# Ignore VS Code and JetBrains IDE settings
-.vscode/
-.idea/
-
-# Ignore HPC job files and logs
-slurm-*.out
-job-*.log
-*.err
-*.out
-
-# Ignore large files and dataset backups
-*.zip
-*.tar.gz
-*.rar
-
-# Keep this .gitignore file
+# Keep this file in the repo
 !.gitignore

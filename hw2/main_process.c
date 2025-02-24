@@ -21,7 +21,7 @@ void abort_(const char *s, ...) {
 }
 
 void apply_average_filter(char **img, char **output, image_size_t sz, int halfwindow) {
-    #pragma omp parallel for schedule(static) // Parallelize rows
+    #pragma omp parallel for schedule(dynamic, 16) // Dynamic scheduling
     for (int r = 0; r < sz.height; r++) {
         for (int c = 0; c < sz.width; c++) {
             double count = 0;
@@ -41,7 +41,7 @@ void apply_sobel_filter(char **img, double **gradient, image_size_t sz) {
     double xfilter[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
     double yfilter[3][3] = {{1, 2, 1}, {0, 0, 0}, {-1, -2, -1}};
 
-    #pragma omp parallel for schedule(static) // Parallelize rows
+    #pragma omp parallel for schedule(guided, 16) // Guided scheduling
     for (int r = 1; r < sz.height - 1; r++) {
         for (int c = 1; c < sz.width - 1; c++) {
             double Gx = 0;
@@ -58,7 +58,7 @@ void apply_sobel_filter(char **img, double **gradient, image_size_t sz) {
 }
 
 void apply_threshold(double **gradient, char **output, image_size_t sz, double thresh) {
-    #pragma omp parallel for schedule(static) // Parallelize rows
+    #pragma omp parallel for schedule(static) // Static scheduling (lightweight)
     for (int r = 0; r < sz.height; r++) {
         for (int c = 0; c < sz.width; c++) {
             output[r][c] = (gradient[r][c] > thresh) ? 255 : 0;

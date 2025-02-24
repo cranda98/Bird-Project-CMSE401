@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdarg.h>
 #include <math.h>
-#include <time.h>  // Include for timing
+#include <time.h>
 #include "png_util.h"
 
 #define min(X,Y) ((X) < (Y) ? (X) : (Y))
@@ -22,10 +22,9 @@ void abort_(const char * s, ...)
 
 char ** process_img(char ** img, char ** output, image_size_t sz, int halfwindow, double thresh)
 {
-    // Start timing for the entire process_img function
+
     clock_t start_total = clock();
 
-    // Start timing for the Average Filter
     clock_t start_avg = clock();
 
     // Average Filter 
@@ -43,7 +42,6 @@ char ** process_img(char ** img, char ** output, image_size_t sz, int halfwindow
             output[r][c] = (int) (tot/count);
         }
 
-    // End timing for the Average Filter
     clock_t end_avg = clock();
     double elapsed_avg = (double)(end_avg - start_avg) / CLOCKS_PER_SEC;
     printf("Average Filter Execution Time: %.4f seconds\n", elapsed_avg);
@@ -51,7 +49,6 @@ char ** process_img(char ** img, char ** output, image_size_t sz, int halfwindow
     //write debug image
     //write_png_file("after_smooth.png",output[0],sz);
 
-    // Start timing for the Sobel Filters and Gradient Calculation
     clock_t start_gradient = clock();
 
     // Sobel Filters
@@ -90,12 +87,10 @@ char ** process_img(char ** img, char ** output, image_size_t sz, int halfwindow
             g_img[r][c] = sqrt(Gx*Gx+Gy*Gy);
         }
 
-    // End timing for the Gradient Calculation
     clock_t end_gradient = clock();
     double elapsed_gradient = (double)(end_gradient - start_gradient) / CLOCKS_PER_SEC;
     printf("Gradient Calculation Execution Time: %.4f seconds\n", elapsed_gradient);
 
-    // Start timing for Thresholding
     clock_t start_thresh = clock();
 
     // Thresholding

@@ -5,6 +5,7 @@
 #include <stdarg.h>
 #include <math.h>
 #include <time.h>
+#include <omp.h>
 #include "png_util.h"
 
 #define min(X, Y) ((X) < (Y) ? (X) : (Y))
@@ -20,6 +21,7 @@ void abort_(const char *s, ...) {
 }
 
 void apply_average_filter(char **img, char **output, image_size_t sz, int halfwindow) {
+    #pragma omp parallel for schedule(static) // Parallelize rows
     for (int r = 0; r < sz.height; r++) {
         for (int c = 0; c < sz.width; c++) {
             double count = 0;
@@ -39,6 +41,7 @@ void apply_sobel_filter(char **img, double **gradient, image_size_t sz) {
     double xfilter[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
     double yfilter[3][3] = {{1, 2, 1}, {0, 0, 0}, {-1, -2, -1}};
 
+    #pragma omp parallel for schedule(static) // Parallelize rows
     for (int r = 1; r < sz.height - 1; r++) {
         for (int c = 1; c < sz.width - 1; c++) {
             double Gx = 0;
@@ -55,6 +58,7 @@ void apply_sobel_filter(char **img, double **gradient, image_size_t sz) {
 }
 
 void apply_threshold(double **gradient, char **output, image_size_t sz, double thresh) {
+    #pragma omp parallel for schedule(static) // Parallelize rows
     for (int r = 0; r < sz.height; r++) {
         for (int c = 0; c < sz.width; c++) {
             output[r][c] = (gradient[r][c] > thresh) ? 255 : 0;
@@ -88,7 +92,7 @@ char **process_img(char **img, char **output, image_size_t sz, int halfwindow, d
     clock_t end_thresh = clock();
     printf("Thresholding Execution Time: %.4f seconds\n", (double)(end_thresh - start_thresh) / CLOCKS_PER_SEC);
 
-    // Free memory
+    // Free allocated memory
     free(gradient);
     free(g_img);
 

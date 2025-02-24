@@ -22,19 +22,20 @@ void abort_(const char * s, ...)
 
 char ** process_img(char ** img, char ** output, image_size_t sz, int halfwindow, double thresh)
 {
-
+    // Start timing for the entire process_img function
     clock_t start_total = clock();
 
+    // Start timing for the Average Filter
     clock_t start_avg = clock();
 
-    // Average Filter 
-    for(int c=0;c<sz.width;c++) 
-        for(int r=0;r<sz.height;r++)
+    // Average Filter (Reordered Loops)
+    for(int r=0;r<sz.height;r++)  // Outer loop: rows
+        for(int c=0;c<sz.width;c++)  // Inner loop: columns
         {
             double count = 0;
             double tot = 0;
-            for(int cw=max(0,c-halfwindow); cw<min(sz.width,c+halfwindow+1); cw++)
-                for(int rw=max(0,r-halfwindow); rw<min(sz.height,r+halfwindow+1); rw++)
+            for(int rw=max(0,r-halfwindow); rw<min(sz.height,r+halfwindow+1); rw++)  // Window rows
+                for(int cw=max(0,c-halfwindow); cw<min(sz.width,c+halfwindow+1); cw++)  // Window columns
                 {
                     count++;
                     tot += (double) img[rw][cw];
@@ -42,13 +43,12 @@ char ** process_img(char ** img, char ** output, image_size_t sz, int halfwindow
             output[r][c] = (int) (tot/count);
         }
 
+    // End timing for the Average Filter
     clock_t end_avg = clock();
     double elapsed_avg = (double)(end_avg - start_avg) / CLOCKS_PER_SEC;
     printf("Average Filter Execution Time: %.4f seconds\n", elapsed_avg);
 
-    //write debug image
-    //write_png_file("after_smooth.png",output[0],sz);
-
+    // Start timing for the Sobel Filters and Gradient Calculation
     clock_t start_gradient = clock();
 
     // Sobel Filters
@@ -72,14 +72,14 @@ char ** process_img(char ** img, char ** output, image_size_t sz, int halfwindow
     for (int r=0; r<sz.height; r++)
         g_img[r] = &gradient[r*sz.width];
 
-    // Gradient filter
-    for(int c=1;c<sz.width-1;c++)
-        for(int r=1;r<sz.height-1;r++)
+    // Gradient filter (Reordered Loops)
+    for(int r=1;r<sz.height-1;r++)  // Outer loop: rows
+        for(int c=1;c<sz.width-1;c++)  // Inner loop: columns
         {
             double Gx = 0;
             double Gy = 0;
-            for(int cw=0; cw<3; cw++)
-                for(int rw=0; rw<3; rw++)
+            for(int rw=0; rw<3; rw++)  // Filter rows
+                for(int cw=0; cw<3; cw++)  // Filter columns
                 {
                     Gx +=  ((double) output[r+rw-1][c+cw-1])*xfilter[rw][cw];
                     Gy +=  ((double) output[r+rw-1][c+cw-1])*yfilter[rw][cw];
@@ -87,15 +87,17 @@ char ** process_img(char ** img, char ** output, image_size_t sz, int halfwindow
             g_img[r][c] = sqrt(Gx*Gx+Gy*Gy);
         }
 
+    // End timing for the Gradient Calculation
     clock_t end_gradient = clock();
     double elapsed_gradient = (double)(end_gradient - start_gradient) / CLOCKS_PER_SEC;
     printf("Gradient Calculation Execution Time: %.4f seconds\n", elapsed_gradient);
 
+    // Start timing for Thresholding
     clock_t start_thresh = clock();
 
-    // Thresholding
-    for(int c=0;c<sz.width;c++)
-        for(int r=0;r<sz.height;r++)
+    // Thresholding (Reordered Loops)
+    for(int r=0;r<sz.height;r++)  // Outer loop: rows
+        for(int c=0;c<sz.width;c++)  // Inner loop: columns
             if (g_img[r][c] > thresh)
                 output[r][c] = 255;
             else

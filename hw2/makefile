@@ -1,3 +1,5 @@
+CFLAGS = -Wall -O2
+
 all: process 
 
 main_process.o: main_process.c

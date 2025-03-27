@@ -21,6 +21,7 @@ This installs:
 - `opencv-python` – (optional) for image preprocessing  
 - `pillow` – lightweight image handling  
 - `numpy` – array manipulation  
+```
 
 ### HPCC Installation (Using Virtual Environment)
 
@@ -33,3 +34,4 @@ pip install tensorflow opencv-python pillow numpy
 To check if it worked:
 
 python -c "import tensorflow as tf; print(tf.__version__)"
+```

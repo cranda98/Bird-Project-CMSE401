@@ -8,7 +8,7 @@ import numpy as np
 model = MobileNetV2(weights='imagenet')
 
 # Load and preprocess the image
-img_path = 'bird.jpg'  # Add a bird image with this name to the same folder
+img_path = 'green-cheek-conure.jpeg'  # Add a bird image with this name to the same folder
 img = image.load_img(img_path, target_size=(224, 224))
 img_array = image.img_to_array(img)
 img_array = np.expand_dims(img_array, axis=0)

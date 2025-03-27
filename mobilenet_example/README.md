@@ -30,8 +30,9 @@ module load python
 python -m venv myenv
 source myenv/bin/activate
 pip install tensorflow opencv-python pillow numpy
-
+```
 To check if it worked:
 
+```bash
 python -c "import tensorflow as tf; print(tf.__version__)"
 ```

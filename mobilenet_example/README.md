@@ -36,3 +36,21 @@ To check if it worked:
 ```bash
 python -c "import tensorflow as tf; print(tf.__version__)"
 ```
+---
+
+## 4. Submission Script
+
+To run this example on the HPCC, save the following script as `run_classifier.sb`:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=bird_classifier
+#SBATCH --output=output.txt
+#SBATCH --ntasks=1
+#SBATCH --time=00:05:00
+#SBATCH --mem=2G
+
+module load python
+source myenv/bin/activate
+python bird_classifier.py
+

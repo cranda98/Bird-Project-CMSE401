@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH --job-name=bird_classifier
+#SBATCH --output=output.txt
+#SBATCH --ntasks=1
+#SBATCH --time=00:05:00
+#SBATCH --mem=2G
+
+module load python
+source myenv/bin/activate
+python bird_classifier.py

@@ -62,4 +62,4 @@ python bird_classifier.py
 - [Keras Applications Overview](https://keras.io/api/applications/)
 - [ImageNet Class Index Labels](https://www.image-net.org/)
 - [Pillow (Python Imaging Library)](https://pillow.readthedocs.io/en/stable/)
-- [Bird Image – Green-Cheeked Conure]([https://commons.wikimedia.org/wiki/File:Green-cheeked_Conure_-_Florida_-_USA_S4E5161_(23303264352).jpg](https://www.petguide.com/breeds/bird/green-cheeked-conure/))
+- [Bird Image – Green-Cheeked Conure](https://www.petguide.com/breeds/bird/green-cheeked-conure/)

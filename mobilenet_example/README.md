@@ -53,7 +53,7 @@ To run this example on the HPCC, save the following script as `run_classifier.sb
 module load python
 source myenv/bin/activate
 python bird_classifier.py
-
+```
 ---
 
 ## 5. References

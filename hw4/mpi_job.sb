@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH --job-name=mpi_revGOL
+#SBATCH --output=mpi_output.txt
+#SBATCH --error=mpi_error.txt
+#SBATCH --ntasks=50
+#SBATCH --time=00:15:00
+#SBATCH --mem=100G
+
+module load gcc openmpi
+
+make reverseGOL-mpi
+
+mpirun -np 50 ./reverseGOL-mpi cmse2.txt 1 > mpi_basic_best.txt

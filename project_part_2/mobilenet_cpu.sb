@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH --job-name=bird_cpu_test
+#SBATCH --output=output_cpu_%j.txt
+#SBATCH --time=00:10:00
+#SBATCH --ntasks=1
+#SBATCH --mem=4G
+
+source ~/.bashrc
+conda activate tf-gpu
+
+cd ~/401project
+
+python mobilenet_serial_test.py

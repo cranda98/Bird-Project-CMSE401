@@ -1,0 +1,21 @@
+#!/bin/bash
+#SBATCH --job-name=bird_gpu_batch
+#SBATCH --output=output_gpu_batch_%j.txt
+#SBATCH --time=00:10:00
+#SBATCH --ntasks=1
+#SBATCH --gres=gpu:1
+#SBATCH --mem=8G
+#SBATCH --partition=gpu  # Ensure you're on a GPU-compatible partition
+
+# Load the correct CUDA-compatible TensorFlow module
+module purge
+module load TensorFlow/2.11.0-foss-2022a-CUDA-11.7.0
+
+# Optional: Show GPU status for confirmation
+nvidia-smi
+
+# Navigate to your project directory
+cd ~/401project
+
+# Run the MobileNet batch script
+python mobilenet_batch_test.py

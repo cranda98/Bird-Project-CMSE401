@@ -1,0 +1,21 @@
+Image,Ground Truth,AI Prediction,Verdict
+test_0019.jpg,Red-bellied Woodpecker,Quail,Challenging
+test_0015.jpg,American Goldfinch,Goldfinch,Correct
+test_0054.jpg,White-breasted Nuthatch,Jay,Wrong
+test_0250.jpg,Red-headed Woodpecker,Bee-eater,Wrong
+test_0238.jpg,Tree Swallow,Jay,Wrong
+test_0157.jpg,Pine Grosbeak,House Finch, Wrong
+test_0136.jpg,Pine Grosbeak,House Finch, Wrong
+test_0107.jpg,Red-headed Woodpecker,Bulbul, Wrong
+test_0029.jpg,Scissor-tailed Flycatcher,Bulbul, Wrong
+test_0074.jpg,Heermann’s Gull,Goose,Challenging
+test_0082.jpg,European Herring Gull,Albatross,Challenging
+test_0123.jpg,Evening Grosbeak,Goldfinch,Challenging
+test_0176.jpg,Nashville Warbler,Goldfinch,Wrong
+test_0180.jpg,American Goldfinch,Goldfinch,Correct
+test_0004.jpg,Common Rosefinch,Hummingbird,Wrong
+test_0052.jpg,White-crowned Sparrow,Brambling,Challenging
+test_0200.jpg,Ruby-throated Hummingbird,Hummingbird,Correct
+test_0228.jpg,Common Yellowthroat,Goldfinch,Wrong
+test_0240.jpg,Barn Swallow,Brambling,Wrong
+test_0038.jpg,Northern Flicker,Hummingbird,Wrong

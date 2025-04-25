@@ -5,6 +5,8 @@ import numpy as np
 import os
 import time
 
+print("GPUs available:", tf.config.list_physical_devices('GPU'))
+
 model = MobileNetV2(weights='imagenet')
 print("MobileNetV2 model loaded.")
 

@@ -42,11 +42,18 @@ python classify.py --input sample_images/ --model mobilenet
 ## Repository Structure
 
 ├── project_proposal/         # Proposal and documentation
+
 ├── data/                     # Datasets (not included in repo)
+
 ├── notebooks/                # Jupyter notebooks for exploration & training
+
 ├── src/                      # Core scripts for preprocessing & classification
+
 ├── results/                  # Plots, benchmarks, and outputs
+
 └── README.md                 # Project overview
+
+---
 
 ✅ Project Status: Complete
 📌 Developed as part of CMSE401, Spring 2025

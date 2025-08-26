@@ -36,6 +36,8 @@ Full proposal available here:
 Example command:  
 ```bash
 python classify.py --input sample_images/ --model mobilenet
+```
+---
 
 ## Repository Structure
 

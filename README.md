@@ -1,6 +1,6 @@
 # AI-Based Bird Species Identification 🐦📸
 
-This project was developed for **CMSE401 (Data Science Capstone)**.  
+This project was developed for **CMSE401**.  
 It uses **deep learning** and **OpenCV** to automatically identify bird species from trail camera images, making bird monitoring faster and easier for conservation efforts.  
 
 ---
@@ -41,17 +41,17 @@ python classify.py --input sample_images/ --model mobilenet
 
 ## Repository Structure
 
-├── project_proposal/           # Proposal and documentation
+├── project_proposal/            # Proposal and documentation
 
-├── data/                       # Datasets (not included in repo)
+├── data/                        # Datasets (not included in repo)
 
-├── notebooks/                  # Jupyter notebooks for exploration & training
+├── notebooks/                   # Jupyter notebooks for exploration & training
 
-├── src/                        # Core scripts for preprocessing & classification
+├── src/                         # Core scripts for preprocessing & classification
 
-├── results/                    # Plots, benchmarks, and outputs
+├── results/                     # Plots, benchmarks, and outputs
 
-├── README.md                   # Project overview
+├── README.md                    # Project overview
 
 ---
 

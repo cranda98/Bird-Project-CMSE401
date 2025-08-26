@@ -55,5 +55,6 @@ python classify.py --input sample_images/ --model mobilenet
 
 ---
 
-✅ Project Status: Complete
+✅ Project Status: Complete                                                                                            
+
 Developed as part of CMSE401, Spring 2025

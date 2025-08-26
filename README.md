@@ -1,25 +1,50 @@
 # AI-Based Bird Species Identification 🐦📸
 
-This is my CMSE401 project! It uses deep learning and OpenCV to automatically identify bird species from trail camera images. The goal is to make bird monitoring easier for conservation efforts.
-
-## 📄 Project Proposal  
-You can find my project proposal in:
-- [📑 `project_proposal.pdf`](project_proposal/project_proposal.pdf)
-
-## 📅 Milestones  
-- ✅ **Milestone 1:** Submit Project Proposal  
-- 🔄 **Next Steps:** Set up environment, test image preprocessing, and run initial classification  
-
-## 🛠️ Technologies Used  
-- **TensorFlow** – Deep learning framework  
-- **OpenCV** – Image processing  
-- **MobileNet/ResNet** – Pre-trained CNN models for bird identification  
-
-## 🚀 Future Goals  
-- Automate batch classification  
-- Optimize performance using GPU acceleration  
-- Benchmark CPU vs. GPU processing times  
+This project was developed for **CMSE401 (Data Science Capstone)**.  
+It uses **deep learning** and **OpenCV** to automatically identify bird species from trail camera images, making bird monitoring faster and easier for conservation efforts.  
 
 ---
 
-🔹 *Stay tuned for updates as the project progresses!*  
+## 📄 Project Proposal  
+Full proposal available here:  
+- [📑 `project_proposal.pdf`](project_proposal/project_proposal.pdf)  
+
+---
+
+## 🛠️ Technologies  
+- **Python** – Core programming language  
+- **TensorFlow** – Deep learning framework  
+- **OpenCV** – Image preprocessing and computer vision  
+- **MobileNet / ResNet** – Pre-trained CNN models for classification  
+
+---
+
+## 📊 Results & Highlights  
+- Successfully classified multiple bird species from image datasets.  
+- Compared performance of **CPU vs. GPU inference**, showing major speedups with parallel processing.  
+- Implemented **batch image classification** for efficient large-scale analysis.  
+- Delivered clear visualizations and metrics demonstrating model accuracy.  
+
+---
+
+## 🚀 How It Works  
+1. **Preprocessing** – Images are cleaned and resized with OpenCV.  
+2. **Model Inference** – Pre-trained CNN (MobileNet/ResNet) classifies the species.  
+3. **Batch Pipeline** – Handles multiple images at once for large datasets.  
+4. **Performance Benchmarking** – CPU and GPU run times compared.  
+
+Example command:  
+```bash
+python classify.py --input sample_images/ --model mobilenet
+
+## Repository Structure
+
+├── project_proposal/         # Proposal and documentation
+├── data/                     # Datasets (not included in repo)
+├── notebooks/                # Jupyter notebooks for exploration & training
+├── src/                      # Core scripts for preprocessing & classification
+├── results/                  # Plots, benchmarks, and outputs
+└── README.md                 # Project overview
+
+✅ Project Status: Complete
+📌 Developed as part of CMSE401, Spring 2025
